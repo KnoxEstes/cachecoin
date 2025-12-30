@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CacheCoin — Tip Geocachers. Find Treasure. Build Community.</title>
+  <meta name="description" content="CacheCoin is a community token for tipping geocachers and rewarding real-world adventures." />
+  <meta property="og:title" content="CacheCoin" />
+  <meta property="og:description" content="Tip geocachers. Find treasure. Build community." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0D1224;
+      --text:#EAF0FF;
+      --muted:#A7B1D6;
+      --accent:#7C5CFF;
+      --accent2:#2EE59D;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,.25), transparent 55%),
+                  radial-gradient(900px 600px at 80% 10%, rgba(46,229,157,.18), transparent 50%),
+                  radial-gradient(900px 900px at 50% 120%, rgba(124,92,255,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px;}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:10px 0 24px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 35px rgba(124,92,255,.35);
+    }
+    .brand b{letter-spacing:.3px}
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      text-decoration:none; color:var(--muted); font-size:14px;
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.03)}
+    .hero{
+      margin-top:10px;
+      display:grid; grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-left{padding:26px}
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 4.5vw, 54px);
+      line-height:1.08;
+      letter-spacing:-.7px;
+    }
+    .lead{color:var(--muted); font-size:18px; margin:0 0 18px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      padding:12px 14px; border-radius:14px;
+      font-weight:650; letter-spacing:.2px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+      transition: transform .08s ease, opacity .2s ease;
+      user-select:none;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), #9A7BFF);
+      color:white;
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      color:var(--text);
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      padding:7px 10px; border-radius:999px; font-size:13px;
+      margin-bottom:14px;
+    }
+    .pill span{display:inline-block; width:9px; height:9px; border-radius:999px; background:var(--accent2)}
+    .hero-right{padding:20px; display:flex; flex-direction:column; gap:12px}
+    .stat{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      background:rgba(255,255,255,.02);
+    }
+    .stat .k{font-size:13px; color:var(--muted)}
+    .stat .v{font-size:18px; font-weight:700}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .copyrow{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .copybtn{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:650;
+    }
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .mini{padding:18px}
+    .mini h3{margin:0 0 8px; font-size:16px}
+    .mini p{margin:0; color:var(--muted); font-size:14px}
+    section{margin-top:34px}
+    .section-title{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    h2{margin:0; font-size:24px; letter-spacing:-.3px}
+    .section-title p{margin:0; color:var(--muted)}
+    .two{
+      margin-top:14px;
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    .pad{padding:18px}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .list li{margin:8px 0}
+    details{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(255,255,255,.02);
+      padding:14px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700;}
+    footer{
+      margin-top:42px;
+      color:var(--muted);
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:space-between; align-items:center;
+      border-top:1px solid var(--border);
+      padding-top:18px;
+      font-size:14px;
+    }
+    .social{display:flex; gap:10px; flex-wrap:wrap}
+    .social a{
+      text-decoration:none;
+      padding:8px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:rgba(255,255,255,.02);
+    }
+
+    /* Media layout in the top-right box */
+    .media-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .media-grid img{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      object-fit:cover;
+      aspect-ratio: 1 / 1;
+    }
+    .media-video{
+      width:100%;
+      border-radius:16px;
+      background:black;
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+
+    @media (max-width: 930px){
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .two{grid-template-columns: 1fr}
+      nav{justify-content:flex-start}
+      .media-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" aria-label="CacheCoin home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <b>CacheCoin</b><br/>
+          <span style="color:var(--muted); font-size:13px;">Tip geocachers • reward finds</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#tipping">Tipping</a>
+        <a href="#token">Token</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero">
+      <div class="card hero-left">
+        <div class="pill"><span></span> Live on Solana (links below)</div>
+        <h1>Tip geocachers.<br/>Turn finds into treasure.</h1>
+        <p class="lead">
+          CacheCoin is a community token for rewarding real-world adventure — leave tips in geocaches,
+          celebrate great hides, and build a fun economy around the hunt.
+        </p>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="#tipping">How tipping works →</a>
+          <a class="btn btn-ghost" href="#token">Token info</a>
+          <a class="btn btn-ghost" href="#" id="buyLink">Buy (DEX) ↗</a>
+        </div>
+
+        <div class="grid">
+          <div class="card mini">
+            <h3>Real-world utility</h3>
+            <p>Tips & rewards inside geocaches, events, and community quests.</p>
+          </div>
+          <div class="card mini">
+            <h3>Simple onboarding</h3>
+            <p>Two options: wallet-to-wallet or “claim later” for new users.</p>
+          </div>
+          <div class="card mini">
+            <h3>Community-first</h3>
+            <p>Transparent supply, fair liquidity, and community bounties.</p>
+          </div>
+        </div>
+
+        <!-- ADDED: What is CacheCoin + Values in the hero-left empty area -->
+        <div class="two" style="margin-top:18px;">
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">What is CacheCoin?</h3>
+            <p style="margin:0; color:var(--muted);">
+              CacheCoin is a community token built for geocachers. It’s used to tip great hides,
+              reward creative containers, support events, and add a fun digital layer to real-world
+              treasure hunting.
+            </p>
+            <p style="margin:10px 0 0; color:var(--muted);">
+              It’s optional, lightweight, and designed to enhance the experience — not replace it.
+            </p>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 8px;">Values</h3>
+            <ul class="list">
+              <li><b>Fun first:</b> geocaching comes before charts or hype.</li>
+              <li><b>Transparency:</b> one real mint, public wallets, clear rules.</li>
+              <li><b>Respect:</b> independent from Geocaching®, community-driven.</li>
+              <li><b>Accessibility:</b> works even for people without a wallet (claim later).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP RIGHT BOX: Photos + Video -->
+      <aside class="card hero-right">
+        <div class="stat">
+          <div class="k">CacheCoin in the wild 🎥</div>
+          <div style="margin-top:10px;">
+            <video class="media-video" controls playsinline preload="metadata">
+              <source src="videos/PragueGeocache3.mp4" type="video/mp4">
+              Your browser does not support the video.
+            </video>
+          </div>
+          <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
+            (Tip: keep video filenames simple — no spaces.)
+          </p>
+        </div>
+
+        <div class="stat">
+          <div class="k">Find photos 📸</div>
+          <div class="media-grid">
+            <img src="images/cache1.jpg" alt="Geocache find photo 1">
+            <img src="images/cache2.jpg" alt="Geocache find photo 2">
+            <img src="images/cache3.jpg" alt="Geocache find photo 3">
+            <img src="images/cache4.jpg" alt="Geocache find photo 4">
+          </div>
+          <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
+            Update photo names in the HTML if yours are different.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <p>Why CacheCoin exists.</p>
+      </div>
+      <div class="two">
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">The idea</h3>
+          <p style="margin:0; color:var(--muted);">
+            Geocaching already has “trade items” and “swag.” CacheCoin adds a lightweight, optional,
+            digital reward layer: tips for great hides, prizes for challenges, and community bounties.
+          </p>
+          <ul class="list">
+            <li>Reward creativity and maintenance.</li>
+            <li>Encourage newcomers with starter tips.</li>
+            <li>Fund community events and cache trails.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">How it stays fun</h3>
+          <ul class="list">
+            <li><b>Simple:</b> small tips, not high-pressure speculation.</li>
+            <li><b>Clear:</b> publish official links and don’t hide the mint.</li>
+            <li><b>Community:</b> bounties, contests, and event rewards.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tipping">
+      <div class="section-title">
+        <h2>Tipping mechanisms</h2>
+        <p>Support geocachers even if they don’t have a wallet yet.</p>
+      </div>
+
+      <div class="two">
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Option 1: Wallet-to-wallet tips</h3>
+          <p style="margin:0; color:var(--muted);">
+            Best for people already using Phantom/Solflare/etc.
+          </p>
+          <ul class="list">
+            <li>Cache note includes a QR to the receiver’s wallet address (or a Tip Page).</li>
+            <li>Finder sends a small CacheCoin tip instantly.</li>
+            <li>Optional: attach a message (“great hide!”).</li>
+          </ul>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Option 2: “Claim later” (no wallet required)</h3>
+          <p style="margin:0; color:var(--muted);">
+            Put a <b>claim code</b> in the cache. Finder can redeem later when they set up a wallet.
+          </p>
+          <ul class="list">
+            <li>Cache contains a sealed card with a one-time code (or QR).</li>
+            <li>Finder visits your claim page, connects wallet (or creates one), and redeems.</li>
+            <li>Codes can be capped (ex: 5 CACHE per find) to prevent draining.</li>
+          </ul>
+          <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
+            (This page is a landing page only — the claim system would be a separate web app + wallet integration.)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINT + SOLSCAN MOVED DOWN HERE -->
+    <section id="token">
+      <div class="section-title">
+        <h2>Token details</h2>
+        <p>Verify the official CacheCoin mint and explorer link here.</p>
+      </div>
+
+      <div class="two">
+        <div class="card pad">
+          <h3 style="margin:0 0 10px;">Official mint</h3>
+
+          <div class="stat" style="margin-top:10px;">
+            <div class="k">Mint address</div>
+            <div class="v mono" id="mintAddr">PASTE_MINT_ADDRESS_HERE</div>
+            <div class="copyrow" style="margin-top:10px;">
+              <button class="copybtn" data-copy="#mintAddr">Copy</button>
+              <span style="color:var(--muted); font-size:12px;">This is the real CacheCoin ID</span>
+            </div>
+          </div>
+
+          <div class="stat" style="margin-top:12px;">
+            <div class="k">Explorer</div>
+            <div class="v">
+              <a id="explorerLink" href="#" target="_blank" rel="noopener">View CacheCoin Token on Solscan ↗</a>
+            </div>
+            <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
+              If a token uses the same name but a different mint address, it’s not CacheCoin.
+            </p>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Basics</h3>
+          <ul class="list">
+            <li><b>Ticker:</b> CACHE</li>
+            <li><b>Chain:</b> Solana</li>
+            <li><b>Mint:</b> <span class="mono">9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC</span></li>
+          </ul>
+
+          <h3 style="margin:16px 0 8px;">Liquidity & trust notes</h3>
+          <ul class="list">
+            <li>Provide initial liquidity on a Solana DEX (ex: Raydium/Orca).</li>
+            <li>Publish the LP address and lock/burn terms (if applicable).</li>
+            <li>Be clear about risks: this is a community token, not investment advice.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="section-title">
+        <h2>Roadmap</h2>
+        <p>A simple, credible path from “token exists” → “people use it.”</p>
+      </div>
+
+      <div class="two">
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Phase 1 — Launch</h3>
+          <ul class="list">
+            <li>Finalize mint + metadata + socials.</li>
+            <li>Seed starter tips (community wallet).</li>
+            <li>Publish website + 1-page whitepaper.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Phase 2 — Utility</h3>
+          <ul class="list">
+            <li>Build “Tip Page” profiles for geocachers.</li>
+            <li>Prototype claim codes + redemption rules.</li>
+            <li>Partner with local events / trails.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Phase 3 — Community growth</h3>
+          <ul class="list">
+            <li>Monthly bounties (best hide, best trail, best story).</li>
+            <li>Creator grants for cache series.</li>
+            <li>Optional NFT badges for achievements.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Phase 4 — Sustainability</h3>
+          <ul class="list">
+            <li>Treasury rules + public reporting.</li>
+            <li>Merch + sponsorship + event funding.</li>
+            <li>Refine anti-abuse + fair distribution.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-title">
+        <h2>FAQ</h2>
+        <p>Answer the questions people actually ask.</p>
+      </div>
+
+      <div style="margin-top:14px;">
+        <details>
+          <summary>Is this officially connected to Geocaching®?</summary>
+          <p style="color:var(--muted); margin:10px 0 0;">
+            No — CacheCoin is community-made and independent. Use trademarks respectfully and avoid implying endorsement.
+          </p>
+        </details>
+        <details>
+          <summary>How do I receive CacheCoin?</summary>
+          <p style="color:var(--muted); margin:10px 0 0;">
+            If you have a Solana wallet (Phantom/Solflare), you can receive it via your wallet address. If not, you can
+            receive a claim code and redeem later.
+          </p>
+        </details>
+        <details>
+          <summary>Is CacheCoin an investment?</summary>
+          <p style="color:var(--muted); margin:10px 0 0;">
+            It’s designed as a community utility token for tipping and rewards. Crypto is risky; only participate if you
+            understand the risks.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> CacheCoin. Built for the hunt.</div>
+      <div class="social">
+        <a href="#" id="footerX">X</a>
+        <a href="#" id="footerDiscord">Discord</a>
+        <a href="#" id="footerDocs">Docs</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const CONFIG = {
+      mint: "9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      explorer: "https://solscan.io/token/9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      buy: "https://raydium.io/swap/?inputCurrency=sol&outputCurrency=9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      x: "https://x.com/YOUR_HANDLE",
+      discord: "https://discord.gg/YOUR_INVITE",
+      docs: "https://YOUR-DOCS-OR-WHITEPAPER-LINK"
+    };
+
+    const byId = (id) => document.getElementById(id);
+    byId("year").textContent = new Date().getFullYear();
+
+    // Mint display in Token section
+    byId("mintAddr").textContent = CONFIG.mint;
+
+    // Link wiring
+    byId("explorerLink").href = CONFIG.explorer;
+    byId("buyLink").href = CONFIG.buy;
+    byId("footerX").href = CONFIG.x;
+    byId("footerDiscord").href = CONFIG.discord;
+    byId("footerDocs").href = CONFIG.docs;
+
+    // Copy buttons
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const sel = btn.getAttribute("data-copy");
+        const el = document.querySelector(sel);
+        const text = el ? el.textContent.trim() : "";
+        try{
+          await navigator.clipboard.writeText(text);
+          const old = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = old), 1000);
+        }catch(e){
+          alert("Copy failed. Select and copy manually.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
