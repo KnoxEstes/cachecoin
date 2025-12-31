@@ -41,7 +41,7 @@
     }
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
     .logo{
-      width:40px; height:40px; border-radius:12px;
+      width:64px; height:64px; border-radius:14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 12px 35px rgba(124,92,255,.35);
     }
@@ -203,10 +203,14 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#top" aria-label="CacheCoin home">
-        <div class="logo" aria-hidden="true"></div>
+        <img src="images/logo.jpg"
+     alt="CacheCoin logo"
+     class="logo">
         <div>
-          <b>CacheCoin</b><br/>
-          <span style="color:var(--muted); font-size:13px;">Tip geocachers • reward finds</span>
+          <b style="font-size:22px;">CacheCoin</b><br/>
+<span style="color:var(--muted); font-size:14px;">
+  Tip geocachers • reward finds
+</span>
         </div>
       </a>
       <nav>
@@ -216,7 +220,7 @@
         <a href="#token">Token</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#faq">FAQ</a>
-      </nav>
+              </nav>
     </header>
 
     <main id="top" class="hero">
@@ -227,7 +231,12 @@
           CacheCoin is a community token for rewarding real-world adventure — leave tips in geocaches,
           celebrate great hides, and build a fun economy around the hunt.
         </p>
-
+<div style="margin-top:10px; color:var(--muted); font-size:14px;">
+  Follow us on X - 
+  <a href="https://x.com/CacheCoinSol" target="_blank" rel="noopener">
+    @CacheCoinSol
+  </a>
+</div>
         <div class="cta">
           <a class="btn btn-primary" href="#tipping">How tipping works →</a>
           <a class="btn btn-ghost" href="#token">Token info</a>
@@ -285,23 +294,17 @@
               Your browser does not support the video.
             </video>
           </div>
-          <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
-            (Tip: keep video filenames simple — no spaces.)
-          </p>
-        </div>
+          </div>
 
         <div class="stat">
           <div class="k">Find photos 📸</div>
           <div class="media-grid">
-            <img src="images/cache1.jpg" alt="Geocache find photo 1">
+            <img src="images/cache3.jpg" alt="Geocache find photo 1">
             <img src="images/cache2.jpg" alt="Geocache find photo 2">
-            <img src="images/cache3.jpg" alt="Geocache find photo 3">
+            <img src="images/cache1.jpg" alt="Geocache find photo 3">
             <img src="images/cache4.jpg" alt="Geocache find photo 4">
           </div>
-          <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
-            Update photo names in the HTML if yours are different.
-          </p>
-        </div>
+          </div>
       </aside>
     </main>
 
@@ -374,8 +377,7 @@
     <section id="token">
       <div class="section-title">
         <h2>Token details</h2>
-        <p>Verify the official CacheCoin mint and explorer link here.</p>
-      </div>
+            </div>
 
       <div class="two">
         <div class="card pad">
@@ -422,8 +424,7 @@
     <section id="roadmap">
       <div class="section-title">
         <h2>Roadmap</h2>
-        <p>A simple, credible path from “token exists” → “people use it.”</p>
-      </div>
+              </div>
 
       <div class="two">
         <div class="card pad">
@@ -467,8 +468,7 @@
     <section id="faq">
       <div class="section-title">
         <h2>FAQ</h2>
-        <p>Answer the questions people actually ask.</p>
-      </div>
+           </div>
 
       <div style="margin-top:14px;">
         <details>
@@ -498,21 +498,19 @@
       <div>© <span id="year"></span> CacheCoin. Built for the hunt.</div>
       <div class="social">
         <a href="#" id="footerX">X</a>
-        <a href="#" id="footerDiscord">Discord</a>
-        <a href="#" id="footerDocs">Docs</a>
-      </div>
+        </div>
     </footer>
   </div>
+<script>
+  const CONFIG = {
+    mint: "9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+    explorer: "https://solscan.io/token/9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+    buy: "https://raydium.io/swap/?inputCurrency=sol&outputCurrency=9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+    X (@CacheCoinSol): "https://x.com/CacheCoinSol",
+    docs: "https://YOUR-DOCS-OR-WHITEPAPER-LINK"
+  };
 
-  <script>
-    const CONFIG = {
-      mint: "9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-      explorer: "https://solscan.io/token/9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-      buy: "https://raydium.io/swap/?inputCurrency=sol&outputCurrency=9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-      x: "https://x.com/YOUR_HANDLE",
-      discord: "https://discord.gg/YOUR_INVITE",
-      docs: "https://YOUR-DOCS-OR-WHITEPAPER-LINK"
-    };
+
 
     const byId = (id) => document.getElementById(id);
     byId("year").textContent = new Date().getFullYear();
@@ -525,8 +523,7 @@
     byId("buyLink").href = CONFIG.buy;
     byId("footerX").href = CONFIG.x;
     byId("footerDiscord").href = CONFIG.discord;
-    byId("footerDocs").href = CONFIG.docs;
-
+  
     // Copy buttons
     document.querySelectorAll("[data-copy]").forEach(btn => {
       btn.addEventListener("click", async () => {
