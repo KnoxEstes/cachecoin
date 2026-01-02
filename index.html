@@ -191,6 +191,19 @@
       overflow:hidden;
     }
 
+    /* Small “status” callout */
+    .notice{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.02);
+      border-radius:16px;
+      padding:14px;
+      color:var(--muted);
+      font-size:14px;
+      margin-top:14px;
+    }
+    .notice b{color:var(--text)}
+    .notice .mono{font-size:13px}
+
     @media (max-width: 930px){
       .hero{grid-template-columns: 1fr}
       .grid{grid-template-columns: 1fr}
@@ -216,6 +229,7 @@
         <a href="#about">About</a>
         <a href="whitepaper.html">Whitepaper</a>
         <a href="#tipping">Tipping</a>
+        <a href="#claim">Claim</a>
         <a href="#token">Token</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#faq">FAQ</a>
@@ -224,25 +238,39 @@
 
     <main id="top" class="hero">
       <div class="card hero-left">
-        <div class="pill"><span></span> Live on Solana (links below)</div>
+        <div class="pill"><span></span> Live on Solana • liquidity seeded (DEX links coming)</div>
         <h1>Tip geocachers.<br/>Turn finds into treasure.</h1>
+
         <p class="lead">
-          CacheCoin is a community token for rewarding real-world adventure — leave tips in geocaches,
-          celebrate great hides, and build a fun economy around the hunt.
+          CacheCoin is a community token for geocachers — used to say “thanks” for great hides, reward creativity,
+          and add a fun digital layer to real-world finds.
+        </p>
+
+        <p class="lead" style="font-size:16px; margin-top:-6px;">
+          CacheCoin is optional, lightweight, and built for the community — not speculation.
         </p>
 
         <div style="margin-top:10px; color:var(--muted); font-size:14px;">
-          Follow us on X -
-          <a href="https://x.com/CacheCoinSol" target="_blank" rel="noopener" style="font-weight:600;">
+          Follow us on X —
+          <a href="https://x.com/CacheCoinSol" target="_blank" rel="noopener" style="font-weight:700;">
             @CacheCoinSol
           </a>
         </div>
 
         <div class="cta">
           <a class="btn btn-primary" href="#tipping">How tipping works →</a>
-          <a class="btn btn-ghost" href="#token">Token info</a>
-          <a class="btn btn-ghost" href="#" id="jupiterLink">Get CacheCoin (Jupiter) ↗</a>
-          <a class="btn btn-ghost" href="#" id="raydiumLink">Get CacheCoin (Raydium) ↗</a>
+          <a class="btn btn-ghost" href="#claim">Claim CacheCoin (coming later)</a>
+          <a class="btn btn-ghost" href="#token">Official mint</a>
+        </div>
+
+        <div class="notice">
+          <b>Liquidity status:</b> Liquidity has been seeded on Solana.<br/>
+          Some decentralized exchange interfaces take time to index new tokens and pools.<br/>
+          <b>We’ll publish official DEX swap links here as soon as they’re available and reliable.</b><br/>
+          <div style="margin-top:10px;">
+            <span>Always verify the mint:</span>
+            <span class="mono" id="mintInline">9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC</span>
+          </div>
         </div>
 
         <div class="grid">
@@ -256,7 +284,7 @@
           </div>
           <div class="card mini">
             <h3>Community-first</h3>
-            <p>Transparent supply, fair liquidity, and community bounties.</p>
+            <p>Transparency, clear mint, and community bounties over hype.</p>
           </div>
         </div>
 
@@ -269,7 +297,7 @@
               treasure hunting.
             </p>
             <p style="margin:10px 0 0; color:var(--muted);">
-              It’s optional, lightweight, and designed to enhance the experience — not replace it.
+              It’s optional and designed to enhance the experience — not replace it.
             </p>
           </div>
 
@@ -277,9 +305,9 @@
             <h3 style="margin:0 0 8px;">Values</h3>
             <ul class="list">
               <li><b>Fun first:</b> geocaching comes before charts or hype.</li>
-              <li><b>Transparency:</b> one real mint, public wallets, clear rules.</li>
+              <li><b>Transparency:</b> one real mint, public links, clear rules.</li>
               <li><b>Respect:</b> independent from Geocaching®, community-driven.</li>
-              <li><b>Accessibility:</b> works even for people without a wallet (claim later).</li>
+              <li><b>Accessibility:</b> participate without buying (tips, gifts, community rewards).</li>
             </ul>
           </div>
         </div>
@@ -317,20 +345,20 @@
         <div class="card pad">
           <h3 style="margin:0 0 8px;">The idea</h3>
           <p style="margin:0; color:var(--muted);">
-            Geocaching already has “trade items” and “swag.” CacheCoin adds a lightweight, optional,
+            Geocaching already has “trade items” and “swag.” CacheCoin adds a lightweight, optional
             digital reward layer: tips for great hides, prizes for challenges, and community bounties.
           </p>
           <ul class="list">
             <li>Reward creativity and maintenance.</li>
             <li>Encourage newcomers with starter tips.</li>
-            <li>Fund community events and cache trails.</li>
+            <li>Support local events and cache trails.</li>
           </ul>
         </div>
         <div class="card pad">
           <h3 style="margin:0 0 8px;">How it stays fun</h3>
           <ul class="list">
             <li><b>Simple:</b> small tips, not high-pressure speculation.</li>
-            <li><b>Clear:</b> publish official links and don’t hide the mint.</li>
+            <li><b>Clear:</b> publish the official mint and links on this site.</li>
             <li><b>Community:</b> bounties, contests, and event rewards.</li>
           </ul>
         </div>
@@ -359,16 +387,50 @@
         <div class="card pad">
           <h3 style="margin:0 0 8px;">Option 2: “Claim later” (no wallet required)</h3>
           <p style="margin:0; color:var(--muted);">
-            Put a <b>claim code</b> in the cache. Finder can redeem later when they set up a wallet.
+            Put a <b>claim card</b> in the cache. Finder can redeem later when they set up a wallet.
           </p>
           <ul class="list">
             <li>Cache contains a sealed card with a one-time code (or QR).</li>
-            <li>Finder visits your claim page, connects wallet (or creates one), and redeems.</li>
+            <li>Finder visits the Claim page (coming later), connects a wallet, and redeems.</li>
             <li>Codes can be capped (ex: 5 CACHE per find) to prevent draining.</li>
           </ul>
           <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
-            (This page is a landing page only — the claim system would be a separate web app + wallet integration.)
+            (This is planned as a separate web app + wallet integration — not live yet.)
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="claim">
+      <div class="section-title">
+        <h2>Claim CacheCoin</h2>
+        <p>Coming later — optional onboarding for new geocachers.</p>
+      </div>
+
+      <div class="two">
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">What is “Claim CacheCoin”?</h3>
+          <p style="margin:0; color:var(--muted);">
+            Some geocachers won’t have a crypto wallet when they find a CacheCoin gift in a cache.
+            The Claim page is an optional way to redeem a small tip later — when they’re ready.
+          </p>
+          <ul class="list">
+            <li><b>Finder gets a claim card</b> with a one-time code.</li>
+            <li><b>Later:</b> they create/connect a Solana wallet.</li>
+            <li><b>They redeem</b> the code and receive CacheCoin.</li>
+          </ul>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Status</h3>
+          <p style="margin:0; color:var(--muted);">
+            The Claim system is <b>not live yet</b>. We’ll publish it here when it’s ready and tested.
+          </p>
+          <ul class="list">
+            <li>No purchase required.</li>
+            <li>Community-first, safety-first.</li>
+            <li>Clear redemption limits to prevent abuse.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -376,6 +438,7 @@
     <section id="token">
       <div class="section-title">
         <h2>Token details</h2>
+        <p>Verify the official mint.</p>
       </div>
 
       <div class="two">
@@ -410,10 +473,12 @@
             <li><b>Mint:</b> <span class="mono">9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC</span></li>
           </ul>
 
-          <h3 style="margin:16px 0 8px;">Liquidity & trust notes</h3>
+          <h3 style="margin:16px 0 8px;">Liquidity note</h3>
           <ul class="list">
-            <li>DEX links are provided for optional access only.</li>
-            <li>Be clear about risks: this is a community token, not investment advice.</li>
+            <li>Liquidity has been seeded on Solana.</li>
+            <li>DEX interfaces may take time to index new pools.</li>
+            <li>Official swap links will be added to this site when reliable.</li>
+            <li>This is a community experiment — crypto is risky; participate responsibly.</li>
           </ul>
         </div>
       </div>
@@ -422,6 +487,7 @@
     <section id="roadmap">
       <div class="section-title">
         <h2>Roadmap</h2>
+        <p>Build usefulness first.</p>
       </div>
 
       <div class="two">
@@ -430,14 +496,14 @@
           <ul class="list">
             <li>Finalize mint + metadata + socials.</li>
             <li>Seed starter tips (community wallet).</li>
-            <li>Publish website + 1-page whitepaper.</li>
+            <li>Publish website + Whitepaper Lite.</li>
           </ul>
         </div>
         <div class="card pad">
           <h3 style="margin:0 0 8px;">Phase 2 — Utility</h3>
           <ul class="list">
-            <li>Build “Tip Page” profiles for geocachers.</li>
-            <li>Prototype claim codes + redemption rules.</li>
+            <li>Paper gifts + simple “tip notes” templates.</li>
+            <li>Prototype Claim system (optional, coming later).</li>
             <li>Partner with local events / trails.</li>
           </ul>
         </div>
@@ -449,7 +515,7 @@
           <ul class="list">
             <li>Monthly bounties (best hide, best trail, best story).</li>
             <li>Creator grants for cache series.</li>
-            <li>Optional NFT badges for achievements.</li>
+            <li>Optional achievement badges (future).</li>
           </ul>
         </div>
         <div class="card pad">
@@ -466,6 +532,7 @@
     <section id="faq">
       <div class="section-title">
         <h2>FAQ</h2>
+        <p>Quick answers.</p>
       </div>
 
       <div style="margin-top:14px;">
@@ -475,18 +542,28 @@
             No — CacheCoin is community-made and independent. Use trademarks respectfully and avoid implying endorsement.
           </p>
         </details>
+
         <details>
-          <summary>How do I receive CacheCoin?</summary>
+          <summary>How do I get CacheCoin?</summary>
           <p style="color:var(--muted); margin:10px 0 0;">
-            If you have a Solana wallet (Phantom/Solflare), you can receive it via your wallet address. If not, you can
-            receive a claim code and redeem later.
+            CacheCoin is primarily shared as tips, gifts, and community rewards. Liquidity has been seeded on Solana,
+            and official DEX swap links will be posted here as soon as they’re available and reliable.
           </p>
         </details>
+
         <details>
           <summary>Is CacheCoin an investment?</summary>
           <p style="color:var(--muted); margin:10px 0 0;">
-            It’s designed as a community utility token for tipping and rewards. Crypto is risky; only participate if you
-            understand the risks.
+            CacheCoin is designed as a community utility token for tipping and rewards. Crypto is risky; only participate
+            if you understand the risks.
+          </p>
+        </details>
+
+        <details>
+          <summary>When will the Claim page be live?</summary>
+          <p style="color:var(--muted); margin:10px 0 0;">
+            The Claim system is coming later after it’s tested and safe. It’s meant to help geocachers who find a claim card
+            before they have a wallet. No purchase is required.
           </p>
         </details>
       </div>
@@ -496,8 +573,7 @@
       <div>© <span id="year"></span> CacheCoin. Built for the hunt.</div>
       <div class="social">
         <a href="#" id="footerX">CacheCoin on X (@CacheCoinSol) ↗</a>
-        <a href="#" id="footerJup">Get CacheCoin (Jupiter) ↗</a>
-        <a href="#" id="footerRay">Get CacheCoin (Raydium) ↗</a>
+        <a href="#" id="footerSolscan">Solscan ↗</a>
       </div>
     </footer>
   </div>
@@ -506,38 +582,31 @@
     const CONFIG = {
       mint: "9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
       explorer: "https://solscan.io/token/9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-      jupiter: "https://jup.ag/swap/SOL-9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-      raydium: "https://raydium.io/swap/?inputMint=sol&outputMint=9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
       x: "https://x.com/CacheCoinSol"
     };
 
     const byId = (id) => document.getElementById(id);
 
     // Year
-    byId("year").textContent = new Date().getFullYear();
+    const yearEl = byId("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // Mint display
     const mintEl = byId("mintAddr");
     if (mintEl) mintEl.textContent = CONFIG.mint;
 
+    const mintInline = byId("mintInline");
+    if (mintInline) mintInline.textContent = CONFIG.mint;
+
     // Links
     const explorerLink = byId("explorerLink");
     if (explorerLink) explorerLink.href = CONFIG.explorer;
 
-    const jupiterLink = byId("jupiterLink");
-    if (jupiterLink) jupiterLink.href = CONFIG.jupiter;
-
-    const raydiumLink = byId("raydiumLink");
-    if (raydiumLink) raydiumLink.href = CONFIG.raydium;
-
     const footerX = byId("footerX");
     if (footerX) footerX.href = CONFIG.x;
 
-    const footerJup = byId("footerJup");
-    if (footerJup) footerJup.href = CONFIG.jupiter;
-
-    const footerRay = byId("footerRay");
-    if (footerRay) footerRay.href = CONFIG.raydium;
+    const footerSolscan = byId("footerSolscan");
+    if (footerSolscan) footerSolscan.href = CONFIG.explorer;
 
     // Copy buttons
     document.querySelectorAll("[data-copy]").forEach(btn => {
