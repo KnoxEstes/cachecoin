@@ -42,8 +42,9 @@
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
     .logo{
       width:64px; height:64px; border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 12px 35px rgba(124,92,255,.35);
+      object-fit:cover;
+      display:block;
     }
     .brand b{letter-spacing:.3px}
     nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
@@ -203,24 +204,22 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#top" aria-label="CacheCoin home">
-        <img src="images/logo.jpg"
-     alt="CacheCoin logo"
-     class="logo">
+        <img src="images/logo.jpg" alt="CacheCoin logo" class="logo">
         <div>
           <b style="font-size:22px;">CacheCoin</b><br/>
-<span style="color:var(--muted); font-size:14px;">
-  Tip geocachers • reward finds
-</span>
+          <span style="color:var(--muted); font-size:14px;">
+            Tip geocachers • reward finds
+          </span>
         </div>
       </a>
       <nav>
         <a href="#about">About</a>
         <a href="whitepaper.html">Whitepaper</a>
-<a href="#tipping">Tipping</a>
+        <a href="#tipping">Tipping</a>
         <a href="#token">Token</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#faq">FAQ</a>
-              </nav>
+      </nav>
     </header>
 
     <main id="top" class="hero">
@@ -231,16 +230,19 @@
           CacheCoin is a community token for rewarding real-world adventure — leave tips in geocaches,
           celebrate great hides, and build a fun economy around the hunt.
         </p>
-<div style="margin-top:10px; color:var(--muted); font-size:14px;">
-  Follow us on X - 
-  <a href="https://x.com/CacheCoinSol" target="_blank" rel="noopener">
-    @CacheCoinSol
-  </a>
-</div>
+
+        <div style="margin-top:10px; color:var(--muted); font-size:14px;">
+          Follow us on X -
+          <a href="https://x.com/CacheCoinSol" target="_blank" rel="noopener" style="font-weight:600;">
+            @CacheCoinSol
+          </a>
+        </div>
+
         <div class="cta">
           <a class="btn btn-primary" href="#tipping">How tipping works →</a>
           <a class="btn btn-ghost" href="#token">Token info</a>
-          <a class="btn btn-ghost" href="#" id="buyLink">Buy (DEX) ↗</a>
+          <a class="btn btn-ghost" href="#" id="jupiterLink">Get CacheCoin (Jupiter) ↗</a>
+          <a class="btn btn-ghost" href="#" id="raydiumLink">Get CacheCoin (Raydium) ↗</a>
         </div>
 
         <div class="grid">
@@ -258,7 +260,6 @@
           </div>
         </div>
 
-        <!-- ADDED: What is CacheCoin + Values in the hero-left empty area -->
         <div class="two" style="margin-top:18px;">
           <div class="card pad">
             <h3 style="margin:0 0 8px;">What is CacheCoin?</h3>
@@ -284,7 +285,6 @@
         </div>
       </div>
 
-      <!-- TOP RIGHT BOX: Photos + Video -->
       <aside class="card hero-right">
         <div class="stat">
           <div class="k">CacheCoin in the wild 🎥</div>
@@ -294,7 +294,7 @@
               Your browser does not support the video.
             </video>
           </div>
-          </div>
+        </div>
 
         <div class="stat">
           <div class="k">Find photos 📸</div>
@@ -304,7 +304,7 @@
             <img src="images/cache1.jpg" alt="Geocache find photo 3">
             <img src="images/cache4.jpg" alt="Geocache find photo 4">
           </div>
-          </div>
+        </div>
       </aside>
     </main>
 
@@ -373,11 +373,10 @@
       </div>
     </section>
 
-    <!-- MINT + SOLSCAN MOVED DOWN HERE -->
     <section id="token">
       <div class="section-title">
         <h2>Token details</h2>
-            </div>
+      </div>
 
       <div class="two">
         <div class="card pad">
@@ -413,8 +412,7 @@
 
           <h3 style="margin:16px 0 8px;">Liquidity & trust notes</h3>
           <ul class="list">
-            <li>Provide initial liquidity on a Solana DEX (ex: Raydium/Orca).</li>
-            <li>Publish the LP address and lock/burn terms (if applicable).</li>
+            <li>DEX links are provided for optional access only.</li>
             <li>Be clear about risks: this is a community token, not investment advice.</li>
           </ul>
         </div>
@@ -424,7 +422,7 @@
     <section id="roadmap">
       <div class="section-title">
         <h2>Roadmap</h2>
-              </div>
+      </div>
 
       <div class="two">
         <div class="card pad">
@@ -468,7 +466,7 @@
     <section id="faq">
       <div class="section-title">
         <h2>FAQ</h2>
-           </div>
+      </div>
 
       <div style="margin-top:14px;">
         <details>
@@ -497,33 +495,50 @@
     <footer>
       <div>© <span id="year"></span> CacheCoin. Built for the hunt.</div>
       <div class="social">
-        <a href="#" id="footerX">X</a>
-        </div>
+        <a href="#" id="footerX">CacheCoin on X (@CacheCoinSol) ↗</a>
+        <a href="#" id="footerJup">Get CacheCoin (Jupiter) ↗</a>
+        <a href="#" id="footerRay">Get CacheCoin (Raydium) ↗</a>
+      </div>
     </footer>
   </div>
-<script>
-  const CONFIG = {
-    mint: "9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-    explorer: "https://solscan.io/token/9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-    buy: "https://raydium.io/swap/?inputCurrency=sol&outputCurrency=9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
-    X (@CacheCoinSol): "https://x.com/CacheCoinSol",
-    docs: "https://YOUR-DOCS-OR-WHITEPAPER-LINK"
-  };
 
-
+  <script>
+    const CONFIG = {
+      mint: "9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      explorer: "https://solscan.io/token/9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      jupiter: "https://jup.ag/swap/SOL-9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      raydium: "https://raydium.io/swap/?inputCurrency=sol&outputCurrency=9AWBty64kBePdwjjim8q5XqcorjRPFhf7AnqL365A3PC",
+      x: "https://x.com/CacheCoinSol"
+    };
 
     const byId = (id) => document.getElementById(id);
+
+    // Year
     byId("year").textContent = new Date().getFullYear();
 
-    // Mint display in Token section
-    byId("mintAddr").textContent = CONFIG.mint;
+    // Mint display
+    const mintEl = byId("mintAddr");
+    if (mintEl) mintEl.textContent = CONFIG.mint;
 
-    // Link wiring
-    byId("explorerLink").href = CONFIG.explorer;
-    byId("buyLink").href = CONFIG.buy;
-    byId("footerX").href = CONFIG.x;
-    byId("footerDiscord").href = CONFIG.discord;
-  
+    // Links
+    const explorerLink = byId("explorerLink");
+    if (explorerLink) explorerLink.href = CONFIG.explorer;
+
+    const jupiterLink = byId("jupiterLink");
+    if (jupiterLink) jupiterLink.href = CONFIG.jupiter;
+
+    const raydiumLink = byId("raydiumLink");
+    if (raydiumLink) raydiumLink.href = CONFIG.raydium;
+
+    const footerX = byId("footerX");
+    if (footerX) footerX.href = CONFIG.x;
+
+    const footerJup = byId("footerJup");
+    if (footerJup) footerJup.href = CONFIG.jupiter;
+
+    const footerRay = byId("footerRay");
+    if (footerRay) footerRay.href = CONFIG.raydium;
+
     // Copy buttons
     document.querySelectorAll("[data-copy]").forEach(btn => {
       btn.addEventListener("click", async () => {
